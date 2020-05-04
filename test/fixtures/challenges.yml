@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  activity_name: MyString
+  activity_reps: MyString
+  start_date: 2020-05-04 14:08:38
+  end_time: 2020-05-04 14:08:38
+  group: one
+
+two:
+  name: MyString
+  activity_name: MyString
+  activity_reps: MyString
+  start_date: 2020-05-04 14:08:38
+  end_time: 2020-05-04 14:08:38
+  group: two

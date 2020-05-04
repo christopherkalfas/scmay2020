@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sunday_reps: 1
+  monday_reps: 1
+  tuesday_reps: 1
+  wednesday_reps: 1
+  thursday_reps: 1
+  friday_reps: 1
+  saturday_reps: 1
+  user: one
+  challenge: one
+
+two:
+  sunday_reps: 1
+  monday_reps: 1
+  tuesday_reps: 1
+  wednesday_reps: 1
+  thursday_reps: 1
+  friday_reps: 1
+  saturday_reps: 1
+  user: two
+  challenge: two
