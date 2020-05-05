@@ -39,7 +39,7 @@ class NewTracker extends Component {
                 resp.json()
             })
             .then(tracker => {
-                this.props.gistory.push("/")
+                this.props.history.push("/")
             })
     }
 
