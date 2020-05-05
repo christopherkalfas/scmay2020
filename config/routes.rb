@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :trackers
+  namespace :api do
+    namespace :v1 do 
+      resources :trackers
+    end 
+  end
   resources :challenges
   resources :groups
   devise_for :users
