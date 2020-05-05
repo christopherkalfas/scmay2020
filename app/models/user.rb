@@ -5,5 +5,6 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
   
     has_many :trackers
+    has_many :challenges, through: :trackers
     belongs_to :group
 end

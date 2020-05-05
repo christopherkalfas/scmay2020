@@ -9,12 +9,16 @@ import './App.css';
 
 function App() {
   return (
+    <div>
+    <h1>Sweat Clause</h1>
     <Router>
       <div className="App">
+
         <Route exact path="/" component={TrackerList} />
         <Route exact path="/trackers/new" component={NewTracker} />
       </div>
     </Router>
+    </div>
   );
 }
 
