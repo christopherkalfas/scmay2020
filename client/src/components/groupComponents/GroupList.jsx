@@ -8,8 +8,9 @@ class GroupList extends Component {
 
     componentDidMount(){
         fetch("/api/v1/groups")
-            .then( groups => groups.json)
-            .then( groups => {
+        .then( groups => groups.json())
+        .then( groups => {
+                console.log(groups)
                 this.setState({
                     groups: groups
                 })

@@ -1,13 +1,19 @@
 module Api 
     module V1 
         class GroupsController < ApplicationController
-            def index 
+            def index
+                groups = Group.all 
                 if user_signed_in? 
-                    render json: current_user.group
+                    render json: groups
                 else 
                     render json: {}, status: 401
                 end 
             end
+
+            # def index 
+            #     @groups = Group.all 
+            #         render json: @groups
+            # end 
 
             def create 
                 if user_signed_in?
