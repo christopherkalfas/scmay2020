@@ -16,10 +16,11 @@ class GroupList extends Component {
             })
     }
 
-    renderGroups = () => {
+    renderGroups =() => {
         return this.state.groups.map(group => {
             return (
                 <div key={group.id}>
+                [group names]
                     {group.name}
                 </div>
             )

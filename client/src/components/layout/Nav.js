@@ -8,6 +8,8 @@ export class Nav extends Component {
                 [Nav Bar goes here]
                 <Link to="/">Home</Link>
                 <Link to="/groups">Groups</Link>
+                <Link to="/trackers">Trackers</Link>
+                <Link to="/trackers/new">New Tracker</Link>
             </div>
         )
     }

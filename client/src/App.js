@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-  HashRouter as Router,
+  HashRouter as Router, 
   Route
-} from "react-router-dom"
+} from 'react-router-dom';
 import TrackerList from "./components/TrackerList"
 import NewTracker from "./components/NewTracker"
 import GroupList from './components/groupComponents/GroupList';
 
 import Home from "./components/layout/Home"
-import Nav from "./components/layout/Nav"
+import Nav from './components/layout/Nav'
 import './App.css';
 
 
@@ -17,7 +17,7 @@ function App() {
     <div>
     <h1>Sweat Clause</h1>
     <Router>
-    <Nav />
+  <Nav />
       <div className="App">
         <Route exact path="/groups" component={GroupList} />
         <Route exact path="/" component={Home} />
