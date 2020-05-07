@@ -6,6 +6,7 @@ import {
 import TrackerList from "./components/TrackerList"
 import NewTracker from "./components/NewTracker"
 import GroupList from './components/groupComponents/GroupList';
+import NewGroup from "./components/groupComponents/NewGroup"
 
 import Home from "./components/layout/Home"
 import Nav from './components/layout/Nav'
@@ -20,6 +21,7 @@ function App() {
   <Nav />
       <div className="App">
         <Route exact path="/groups" component={GroupList} />
+        <Route exact path="/groups/new" component={NewGroup} />
         <Route exact path="/" component={Home} />
         <Route exact path="/trackers" component={TrackerList} />
         <Route exact path="/trackers/new" component={NewTracker} />
