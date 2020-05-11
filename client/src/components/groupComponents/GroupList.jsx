@@ -1,13 +1,23 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams
+  } from "react-router-dom";
 import axios from 'axios'
+import GroupShow from './GroupShow';
 
-class GroupList extends Component {
+
+class GroupList extends React.Component {
+
     state = {
         groups: []
     }
 
     componentDidMount(){
+ 
        axios.get('/api/v1/groups')
         .then(resp => {
             this.setState({groups: resp.data})
@@ -23,10 +33,14 @@ class GroupList extends Component {
 
     render(){
         const groups = this.state.groups.map((group,index)=> {
-            return (<li key={index}>{group.name}</li>)
+            return (
+            <li key={index}>
+                <Link to={`/groups/${group.id}`}>{group.name}</Link>
+            </li>)
         })
         return(
             <div className="group-list">
+          
                 All Groups
                 {groups}
 

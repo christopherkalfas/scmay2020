@@ -11,6 +11,7 @@ import NewGroup from "./components/groupComponents/NewGroup"
 import Home from "./components/layout/Home"
 import Nav from './components/layout/Nav'
 import './App.css';
+import GroupShow from './components/groupComponents/GroupShow';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <div className="App">
         <Route exact path="/groups" component={GroupList} />
         <Route exact path="/groups/new" component={NewGroup} />
+        <Route path="/groups/:id" component={GroupShow} />
         <Route exact path="/" component={Home} />
         <Route exact path="/trackers" component={TrackerList} />
         <Route exact path="/trackers/new" component={NewTracker} />
