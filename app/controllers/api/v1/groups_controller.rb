@@ -2,30 +2,47 @@ module Api
     module V1 
         class GroupsController < ApplicationController
             def index
-                groups = Group.all 
-                if user_signed_in? 
-                    render json: groups
-                else 
-                    render json: {}, status: 401
-                end 
+                groups = Group.all
+                render json: groups
             end
-
-            # def index 
-            #     @groups = Group.all 
-            #         render json: @groups
-            # end 
-
+        
+            def show
+                group = Group.find(params[:id])
+            end
+        
+            def new
+                group = Group.new
+            end
+            
+        
             def create 
-                if user_signed_in?
-                    if tracker = current_user.group.create(group_params)
-                        render json: group, status: :created 
+                group = Group.create(group_params)
+                
+                    if group.save 
+                        redirect_to group_path(group)
                     else 
-                        render json: group.errors, status: 400 
+                        render :new
                     end 
-                else 
-                    render json: {}, status: 401 
-                end
             end
+        
+            def edit 
+                @group = Group.find(params[:id])
+            end 
+        
+            def update 
+                group = Group.find(params[:id])
+                if group.update(group_params)
+                    redirect_to group_path(group)
+                else
+                    render :edit
+                end 
+            end 
+            
+            def destroy 
+                group = Group.find(params[:id])
+                group.destroy
+                redirect_to groups_path
+            end 
 
             private 
 

@@ -23,8 +23,6 @@ class NewGroup extends Component {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-Token': token
             },
             redirect: "error",
             body: JSON.stringify(this.state)
@@ -34,7 +32,7 @@ class NewGroup extends Component {
                 resp.json()
             })
             .then(group => {
-                this.props.history.push("/")
+                this.props.history.push("/groups")
             })
     }
     render(){

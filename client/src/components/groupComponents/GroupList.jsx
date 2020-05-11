@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 class GroupList extends Component {
     state = {
@@ -7,33 +8,29 @@ class GroupList extends Component {
     }
 
     componentDidMount(){
-        fetch("/api/v1/groups")
-        .then( groups => groups.json())
-        .then( groups => {
-                console.log(groups)
-                this.setState({
-                    groups: groups
-                })
-            })
-    }
-
-    renderGroups =() => {
-        return this.state.groups.map(group => {
-            return (
-                <div key={group.id}>
-                [group names]
-                    {group.name}
-                </div>
-            )
+       axios.get('/api/v1/groups')
+        .then(resp => {
+            debugger
+            this.setState({groups: resp.data})
+        })
+        .catch(data => {
+            debugger
         })
     }
 
+    
+
+
+
     render(){
+        const groups = this.state.groups.map((group,index)=> {
+            return (<li key={index}>{group.name}</li>)
+        })
         return(
             <div className="group-list">
                 All Groups
-                {this.renderGroups()}
-                <Link to="/groups/new">Add new Group</Link>
+                {groups}
+
             </div>
         )
     }
