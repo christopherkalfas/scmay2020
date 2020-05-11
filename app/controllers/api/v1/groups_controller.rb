@@ -19,7 +19,7 @@ module Api
                 group = Group.create(group_params)
                 
                     if group.save 
-                        redirect_to group_path(group)
+                        render json: group
                     else 
                         render :new
                     end 

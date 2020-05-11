@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class NewGroup extends Component {
     state = {
@@ -6,30 +7,20 @@ class NewGroup extends Component {
     }
 
     handleChange = e => {
-        let newValue = e.target.value 
-        let key = e.target.name
-        this.setState({
-            [key]: newValue
-        })
+        this.setState({[e.target.name]: e.target.value})
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        let data ={group: this.state}
-        let token = document.querySelector('meta[name="csrf-token"]').content
+        const group = {
+            name: this.state.name
+        }
 
-        fetch("api/vi/groups",{
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-            },
-            redirect: "error",
-            body: JSON.stringify(this.state)
-
-        })
+        axios
+            .post("api/v1/groups", group)
             .then(resp => {
-                resp.json()
+                
+                console.log(resp.data)
             })
             .then(group => {
                 this.props.history.push("/groups")
@@ -40,7 +31,12 @@ class NewGroup extends Component {
             <form onSubmit = {this.handleSubmit.bind(this)}>
                 <p>
                     <label htmlFor="new-group-form-name">Group name:</label>
-                    <input type="text" name="name" onChange={this.handleChange} />
+                    <input 
+                        type="text"
+                        name="name"
+                        placeholder="Cool Group Name"
+                        onChange={this.handleChange}
+                    />
                 </p>
 
                 <input type="submit" value="Create New Group"/>

@@ -10,7 +10,6 @@ class GroupList extends Component {
     componentDidMount(){
        axios.get('/api/v1/groups')
         .then(resp => {
-            debugger
             this.setState({groups: resp.data})
         })
         .catch(data => {
