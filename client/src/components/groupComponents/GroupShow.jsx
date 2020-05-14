@@ -1,11 +1,13 @@
 import React from 'react'
 
-const GroupShow = (group) => (
-    <div className="group-show-container">
-        <h1>
-            {group.name}
-        </h1>
-    </div>
+
+const GroupShow = (props) => (
+ 
+        <div>
+            {props.name}
+            [test]
+        </div>
+    
 )
 
 export default GroupShow

@@ -1,12 +1,11 @@
 import React from 'react'
-import {
-    BrowserRouter as Router,
+import {  BrowserRouter as Router,
     Switch,
-    Route,
-    Link
-} from 'react-router-dom';
+    Link,
+    Route } from 'react-router-dom';
 import axios from 'axios'
 import GroupShow from "./GroupShow"
+
 
 
 
@@ -21,37 +20,33 @@ class GroupList extends React.Component {
        axios.get('/api/v1/groups')
         .then(resp => {
             this.setState({groups: resp.data})
+            console.log(resp.data)
         })
         .catch(data => {
             debugger
         })
     }
 
-   render(){
-    const groups = this.state.groups.map((group,index)=> {
-        return (
-            
+    render(){
+        const groups = this.state.groups.map((group,index)=> {
+            return (
             <li key={index}>
-                <Link to ={`/groups/${group.id}`}>{group.name}</Link>
-            </li>
-
-
-                    
-        )
-    })
+                <Link to={`/groups/${group.id}`}>{group.name}</Link>
+            </li>)
+        })
         return(
-
             <div className="group-list">
-                <ul>
-                    {groups}
-                </ul>
-            </div>
+          
+                All Groups
+                {groups}
 
+            </div>
         )
+    }
     }
     
 
-}
+
 
 export default GroupList
 
@@ -59,3 +54,4 @@ export default GroupList
 
 
 
+{/* <Link to={`/groups/${group.id}`}>{group.name}</Link> */}

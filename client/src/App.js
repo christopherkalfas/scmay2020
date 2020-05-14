@@ -23,7 +23,9 @@ function App() {
       <div className="App">
         <Route exact path="/groups" component={GroupList} />
         <Route exact path="/groups/new" component={NewGroup} />
-        <Route path="/groups/:id" component={GroupShow} />
+        <Route path="/groups/:id" render={({match,history})=>{
+          return <GroupShow history={history} groupId={match.params.id}/>
+        }} />
         <Route exact path="/" component={Home} />
         <Route exact path="/trackers" component={TrackerList} />
         <Route exact path="/trackers/new" component={NewTracker} />
