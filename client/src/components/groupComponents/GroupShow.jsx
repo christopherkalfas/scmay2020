@@ -1,13 +1,14 @@
 import React from 'react'
 
 
-const GroupShow = (props) => (
- 
+
+export const GroupShow = props => {
+    return(
         <div>
-            {props.name}
-            [test]
+            {props.group.name}       
         </div>
-    
-)
+    )
+
+}
 
 export default GroupShow

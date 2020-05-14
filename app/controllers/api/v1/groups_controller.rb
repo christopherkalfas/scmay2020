@@ -8,6 +8,7 @@ module Api
         
             def show
                 group = Group.find(params[:id])
+                render json: group
             end
         
             def new

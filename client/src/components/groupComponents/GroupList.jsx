@@ -28,13 +28,17 @@ class GroupList extends React.Component {
     }
 
     render(){
+
+    
         const groups = this.state.groups.map((group,index)=> {
             return (
             <li key={index}>
-                <Link to={`/groups/${group.id}`}>{group.name}</Link>
+            <GroupShow group={group} key={index}/>
+                {/* <Link to={`/groups/${group.id}`}>{group.name}</Link> */}
             </li>)
         })
         return(
+
             <div className="group-list">
           
                 All Groups
@@ -49,6 +53,8 @@ class GroupList extends React.Component {
 
 
 export default GroupList
+
+
 
 
 
