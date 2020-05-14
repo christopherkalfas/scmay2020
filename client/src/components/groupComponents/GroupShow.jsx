@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class GroupShow extends Component {
-    render(){
-        return(
-            <div className="group-show-container">
-                [group info will go here]
-            </div>
-        )
-    }
-}
+const GroupShow = (group) => (
+    <div className="group-show-container">
+        <h1>
+            {group.name}
+        </h1>
+    </div>
+)
 
 export default GroupShow
