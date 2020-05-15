@@ -12,6 +12,7 @@ import Home from "./components/layout/Home"
 import Nav from './components/layout/Nav'
 import './App.css';
 import GroupShow from './components/groupComponents/GroupShow';
+import Dashboard from './components/challengeComponents/Dashboard'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/trackers/new" component={NewTracker} />
       </div>
     </Router>
+    <Dashboard />
     </div>
   );
 }
